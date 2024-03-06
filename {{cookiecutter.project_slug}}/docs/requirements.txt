@@ -1,0 +1,8 @@
+-e .
+fybdthemes
+ipython
+matplotlib
+mkdocs
+mkdocs-jupyter
+mkdocs-material
+mkdocstrings[crystal,python]

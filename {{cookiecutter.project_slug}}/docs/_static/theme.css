@@ -1,0 +1,11 @@
+:root {
+    --md-primary-fg-color: #b26679;
+    --md-primary-bg-color: #ffe9dd;
+    --pst-color-secondary: rgb(121, 40, 161);
+    --pst-color-inline-code-links: rgb(121, 40, 161);
+    --md-accent-fg-color: rgb(121, 40, 161);
+}
+
+html {
+    font-size: 130%;
+}

@@ -1,0 +1,62 @@
+site_name: "{{ cookiecutter.project_slug }}"
+site_description: Documentation for {{ cookiecutter.project_slug }}
+site_url: https://{{ cookiecutter.project_slug }}.readthedocs.io
+repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+repo_name: {{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+edit_uri: ""
+
+nav:
+  - 🏠 Home: 'index.md'
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
+
+plugins:
+  - search
+  - mkdocs-jupyter
+  - autorefs
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            heading_level: 3
+            show_root_heading: true
+            show_root_full_path: true
+            show_root_toc_entry: true
+            show_symbol_type_heading: true
+            show_if_no_docstring: true
+            show_signature_annotations: true
+            show_source: false
+            inherited_members: true
+            docstring_style: "numpy"
+
+
+extra_css:
+  - _static/theme.css
+  - stylesheets/permalinks.css

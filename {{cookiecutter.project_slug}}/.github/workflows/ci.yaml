@@ -10,9 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - uses: pre-commit/action@v2.0.0
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+      - uses: pre-commit/action@v3.0.0
 
   test:
     name: unit tests
@@ -21,19 +21,19 @@ jobs:
       - build
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [3.11]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         pip install tox
-    - name: Run format, sort, lints and types
+    - name: Run format, lints and types
       run: |
-        tox -e  format,sort,lints,types
+        tox -e format,lints,types
     - name: Run tests
       run: |
         tox -e tests
@@ -45,11 +45,11 @@ jobs:
       - test
     strategy:
       matrix:
-        python-version: [3.9]
+        python-version: [3.11]
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v3
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
